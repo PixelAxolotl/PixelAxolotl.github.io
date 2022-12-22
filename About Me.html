@@ -1,21 +1,28 @@
-<html>
-
+w<html>
 <head>
-<link rel="icon" href="assets/a.png">
-</head>
+	<link rel="icon" href="assets/a.png"></link>
+	<!-- Include AOS in your HTML file -->
+	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+	<!-- Add the data-aos attribute to the element you want to animate -->
+	<div class="element" data-aos="fade-up"></div>
+
+	<!-- Initialize AOS -->
+	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+<title>
+Hello
+</title>
+	
+
 
 <style>
 body {
  background-image: url('assets/background.png');
  background-size: 25% 25%;}
-</style>
-
-<title>
-About me 
-</title>
-
-<style>
-.button {
+ .button {
   border: none;
   color: white;
   padding: 15px 32px;
@@ -26,19 +33,31 @@ About me
   margin: 4px 2px;
   cursor: pointer;
 }
-.button1 {background-color: #4CAF50;} 
-.button2 {background-color: #008CBA;} 
+h1 {
+ color: white;
+ text-shadow: 0 0 10px #3ef0d8, 0 0 5px #fff;
+ animation: glow 1s linear infinite;
+ color: #3ef0d8;
+ font-size:30px;
+ text-align: center;
+ text-decoration: underline;
+ margin-top: 50px;
+}
+p {
+ color: white;
+ text-shadow: 0 0 10px #3ef0d8, 0 0 5px #fff;
+ animation: glow 1s linear infinite;
+ color: #3ef0d8;
+ font-size:20px;
+ font-family: 'Lucida Handwriting', cursive;
+}
 </style>
-</head>
-<div id="button" style="width:20px; height:20px;">
+<div data-aos="fade-down" data-aos-duration="1000">
+	<h1>Hello</h1>
 </div>
-<body>
-<button class="button button1" style="width:150px; height:50px" onclick="window.location.href='index.html'">Back </button>
-<button class="button button2" onclick="alert('Hello world!')">.</button>
-</body>
-
-<audio controls autoplay>  
- <source src="assets/Dandelions.mp3" type="audio/mpeg"size="1">
-</audio>
-
+<div data-aos="fade-down" data-aos-duration="1000">
+<p>
+I am a Cat
+</p>
+</div>
 </html>

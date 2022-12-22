@@ -1,21 +1,28 @@
 <html>
-
 <head>
-<link rel="icon" href="assets/a.png">
-</head>
+	<link rel="icon" href="assets/a.png"></link>
+	<!-- Include AOS in your HTML file -->
+	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 
+	<!-- Add the data-aos attribute to the element you want to animate -->
+	<div class="element" data-aos="fade-up">Animate me on scroll</div>
+
+	<!-- Initialize AOS -->
+	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
 <title>
 Hello
 </title>
 	
+
+
 <style>
 body {
  background-image: url('assets/background.png');
  background-size: 25% 25%;}
-</style>
-
-<style>
-.button {
+ .button {
   border: none;
   color: white;
   padding: 15px 32px;
@@ -25,15 +32,48 @@ body {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  font-family: Crusive;"
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '>>';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 .button1 {background-color: #398E4C;} 
 .button2 {background-color: #008CBA;} 
-</style>
-</head>
-<body>
-<button class="button button1" onclick="window.location.href='About me.html'">About me </button>
-<button class="button button1" onclick="window.location.href='password.html'">School Thing </button>
-<button class="button button2" onclick="alert('Hello world!')">.</button>
-</body>
 
+.body {
+ background-image: url('assets/background.png');
+ background-size: 25% 25%;}
+
+</style>
+
+</head>
+<div class="container reveal" class="element" data-aos="fade-up" data-aos-easing="linear">
+<body>
+	<button class="button button1" onclick="window.location.href='About me.html'"><span>About me </span></button>
+	<button class="button button1" onclick="window.location.href='password.html'"><span>School Thing </span></button>
+	<button class="button button2" onclick="alert('Hello world!')"><span>.</span></button>
+</body>
+</div>
 </html>
