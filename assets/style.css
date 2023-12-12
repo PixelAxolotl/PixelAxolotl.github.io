@@ -1,0 +1,96 @@
+	.container{
+		padding: 20px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+	}
+	.box1 {
+		width: 75%;
+		height: auto;
+		background-color: #fff3f336;
+		padding: 15px;
+		align-items: center;
+        border: #9292927a;
+        border-radius: 5px;
+        border-style: solid;
+        backdrop-filter: blur(1px);
+	}
+	button{
+		color:#facaca;
+		font-family: 'Indie Flower';
+		background-color: #facaca;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	.title{
+		font-family: 'Indie Flower', cursive;
+		text-align: center;
+		color: #fdecec;
+		font-size:30pt;
+		font-weight: bolder;
+		text-shadow: 0px 0px 8px #ffffff;
+	}
+	.subhead{
+		font-family: 'Indie Flower', cursive;
+		text-align: left;
+		color: #fdecec;
+		padding-left: 7.5%;
+		font-weight: bold;
+        padding-top: 5pt;
+		font-size:20pt;
+	}
+	.text{
+		font-family: 'Indie Flower', cursive;
+		text-align: left;
+		color: #fdecec;
+		padding-left: 5%;
+		word-wrap: break-word;
+		font-size:15pt;
+	}
+    .text a{
+        text-align: center;
+        color: rgb(243, 231, 226);
+    }
+    body{
+        background: url(/assets/background.png);
+        background-size: 10% 10%;
+    }
+
+	ref:before {
+		content: '>';
+	}
+	a:link{
+		color: #ffe1e1;
+	}
+	a:visited{
+		color: #ff9d9d;
+	}
+
+
+
+
+	details {
+		user-select: none;
+	}
+	
+	details>summary span.icon {
+		width: 24px;
+		height: 24px;
+		transition: all 0.3s;
+		margin-left: auto;
+	}
+	
+	details[open] summary span.icon {
+		transform: rotate(90deg);
+	}
+	
+	summary {
+		display: flex;
+		cursor: pointer;
+	}
+	
+	summary::-webkit-details-marker {
+		display: none;
+	}
+

@@ -1,79 +1,92 @@
 <html>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="PixelAxolotl4702">
+
 <head>
-	<link rel="icon" href="assets/a.png"></link>
-	<!-- Include AOS in your HTML file -->
+	<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+	<link rel="icon" href="assets/a.png">
 	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-
-	<!-- Add the data-aos attribute to the element you want to animate -->
-	<div class="element" data-aos="fade-up">Animate me on scroll</div>
-
-	<!-- Initialize AOS -->
+	<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-	<script>
-		AOS.init();
-	</script>
-<title>
-Hello
-</title>
-	
-
-
-<style>
-body {
- background-image: url('assets/background.png');
- background-size: 25% 25%;}
- .button {
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  font-family: Crusive;"
-}
-
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.button span:after {
-  content: '>>';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-.button1 {background-color: #398E4C;} 
-.button2 {background-color: #008CBA;} 
-
-.body {
- background-image: url('assets/background.png');
- background-size: 25% 25%;}
-
-</style>
-
+	<script>AOS.init();</script>
+	<title>	PixelAxolotl4702</title>
 </head>
-<div class="container reveal" class="element" data-aos="fade-up" data-aos-easing="linear">
-<body>
-	<button class="button button1" onclick="window.location.href='About me.html'"><span>About me </span></button>
-	<button class="button button1" onclick="window.location.href='password.html'"><span>School Thing </span></button>
-	<button class="button button2" onclick="alert('Hello world!')"><span>.</span></button>
-</body>
-</div>
+<style>
+	body{
+		background-color: #facaca;
+		margin-top: 10;
+		padding-left: 20pt;
+		padding-right: 20pt;
+		padding-top: 5pt;
+		padding-bottom: 6pt;
+		border: 0;
+		position: relative;		
+	}
+	.text{
+		font-family: 'Indie Flower', cursive;
+		font-size: 20px;
+		text-align: center;
+		color: #380c0c;
+		font-weight: lighter;
+	}
+	.box {
+		width: 45%;
+		height: auto;
+		background-color: #e69e9e;
+		box-shadow: inset 0 0 6px 0px #facaca;
+		padding: 15px;
+		margin-top: 10px;
+		display: inline-block;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.box h1 {
+		margin-top: 0;
+		font-size: 40pt;
+	}
+	.box p {
+		margin-top: 0;
+		text-align: left;
+		padding-left: 10pt;
+	}
+	.box a {
+		margin-top: 0;
+		text-align: left;
+	}
+	.container {
+		padding: 20px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		
+	}
+	button{
+		color:#facaca;
+		font-family: 'Indie Flower';
+		background-color: #facaca;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	a:-webkit-any-link {
+		color: #6d1d1d;
+		cursor: pointer;
+		text-decoration: none;
+	}
+</style>
+	<div class="container">
+		<div class ="box">
+			<div class="text" >				
+				<h1><b>About Pixel</h1></b>
+				<button><a href="AboutMe.html" target="_self">>About Me</a></button>
+				<p></p>
+				<button><a href="AOD6.0.html" target="_self">>AOD 6.0</a></button>
+				<p></p>
+				<button><a href="LocationCheck_RandomQuotes.html" target="_self">>Random Projects</a></button>
+				<p></p>
+				<button><a href="LocationCheck_RandomQuotes.html" target="_self">>Smt</a></button>
+			</div>
+		</div>
+	</div>
 </html>
