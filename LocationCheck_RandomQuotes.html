@@ -3,7 +3,6 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="PixelAxolotl4702">
-
 <head>
 	<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 	<link rel="icon" href="assets/a.png">
@@ -16,24 +15,16 @@
 </head>
 <body>
     <script>
-        // Function to redirect users from specific countries
         function UwU() {
-            // Get the user's IP address
             $.getJSON("https://ipapi.co/json/", function (data) {
-                var userCountry = data.country_code; // Get the user's country code
-
-                // Check if the user's country is Malaysia (country code: MY)
+                var userCountry = data.country_code;
                 if (userCountry === "MY") {
-                    // Redirect the user to a different page if from Malaysia
                     window.location.href = "404 Not Found.html";
                 } else {
-                    // Redirect the user to a different page if not from Malaysia
                     window.location.href = "RandomStuff.html";
                 }
             });
         }
-
-        // Call the redirect function when the page loads
         $(document).ready(function () {
             UwU();
         });
