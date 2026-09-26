@@ -1,95 +1,289 @@
+/* Shared Carrd-style theme for PixelAxolotl.github.io */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-	background-color: #facaca;
-	margin: 0;
-	padding: 0;
-	border: 0;
-	position: relative;
-	background: url(/assets/background.png);
-    background-size: 20% 20%;
+  min-height: 100vh;
+  font-family: 'Nunito', sans-serif;
+  color: #5b2323;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: #f3c9c9;
 }
-.navbar {
-	background-color: #ffd1d1;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 15px 20px;
-	box-shadow: inset 0 0 6px 0px #fad1d1;
-	height: 64px;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 20%, rgba(255,209,209,.92), rgba(250,202,202,.85) 45%, rgba(230,158,158,.9));
+  z-index: -2;
+}
+/* Film-grain noise texture (generated, no image file needed). */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .38;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+}
+.card {
+  width: 100%;
+  max-width: 460px;
+  background: rgba(255, 245, 245, 0.92);
+  backdrop-filter: blur(8px);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(91, 35, 35, .25), inset 0 0 0 2px #ffd1d1;
+  padding: 2.5rem 2rem 2rem;
+  text-align: center;
+}
+.card.wide { max-width: 560px; }
+.avatar {
+  width: 124px;
+  height: 124px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  border: 4px solid #fdbbbb;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+  display: block;
+  margin: 0 auto;
+}
+h1 {
+  font-family: 'Indie Flower', cursive;
+  font-size: 2.6rem;
+  line-height: 1;
+  margin: 1rem 0 .25rem;
+  color: #380c0c;
+}
+.tag {
+  display: inline-block;
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: #fdbbbb;
+  padding: .3rem .8rem;
+  border-radius: 999px;
+  margin: .5rem 0 1rem;
+}
+.bio {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  opacity: .9;
+  margin-bottom: 1.5rem;
+}
+.divider {
+  width: 48px;
+  height: 4px;
+  border-radius: 999px;
+  background: #e69e9e;
+  margin: 0 auto 1.5rem;
+}
+.btns { display: grid; gap: .7rem; }
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  text-decoration: none;
+  color: #6d1d1d;
+  font-weight: 800;
+  background: #ffd1d1;
+  border: 2px solid transparent;
+  padding: .85rem 1.1rem;
+  border-radius: 14px;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+.btn small { font-weight: 600; opacity: .7; }
+.btn:hover {
+  background: #fdbbbb;
+  border-color: #e69e9e;
+  transform: translateY(-1px);
+}
+.btn span.arrow { opacity: .6; }
+.back {
+  display: inline-block;
+  text-decoration: none;
+  color: #6d1d1d;
+  font-weight: 800;
+  font-size: .9rem;
+  background: #ffd1d1;
+  border-radius: 999px;
+  padding: .4rem 1rem;
+  margin-bottom: 1.25rem;
+  transition: background .15s ease;
+}
+.back:hover { background: #fdbbbb; }
+.section {
+  text-align: left;
+  background: rgba(255, 209, 209, .45);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  margin-bottom: .8rem;
+}
+.section h2 {
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.4rem;
+  color: #380c0c;
+  margin-bottom: .3rem;
+}
+.section p, .section li { font-size: .98rem; line-height: 1.6; }
+.section ul { padding-left: 1.2rem; }
+.quote-box {
+  background: rgba(255, 209, 209, .45);
+  border-radius: 14px;
+  padding: 1.25rem 1.1rem;
+  margin-bottom: .8rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  min-height: 5.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.action-btn {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #6d1d1d;
+  background: #fdbbbb;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: .85rem 1.1rem;
+  width: 100%;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease;
+}
+.action-btn:hover { background: #f0b0b0; transform: translateY(-1px); }
+.status { margin-top: 1.5rem; display: flex; justify-content: center; }
+.status img { max-width: 100%; border-radius: 12px; }
+footer { margin-top: 1.25rem; font-size: .8rem; opacity: .6; }
+.spinner {
+  width: 42px; height: 42px;
+  border: 4px solid #fdbbbb;
+  border-top-color: #6d1d1d;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+details.ref {
+  margin-top: .8rem;
+  font-size: .9rem;
+  color: #6d1d1d;
+  text-align: left;
+}
+details.ref summary { cursor: pointer; font-weight: 800; }
+details.ref a { color: #6d1d1d; word-break: break-all; }
+.top-link { display: inline-block; margin-top: .8rem; font-weight: 800; color: #6d1d1d; text-decoration: none; }
+.top-link:hover { text-decoration: underline; }
+/* ---- photo album (masonry: handles landscape + portrait, all screens) ---- */
+.gallery { columns: 2; column-gap: .8rem; margin-bottom: .8rem; }
+.gallery figure {
+  break-inside: avoid;
+  margin: 0 0 .8rem;
+  background: rgba(255, 209, 209, .45);
+  border-radius: 14px;
+  padding: .6rem;
+  cursor: zoom-in;
+  transition: transform .15s ease;
+}
+.gallery figure:hover { transform: translateY(-2px); }
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  background: #fff;
+}
+.gallery figcaption { font-size: .85rem; font-weight: 700; padding: .5rem .2rem .2rem; }
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 15, 20, .9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  padding: 1.5rem;
+  z-index: 50;
+}
+.lightbox[hidden] { display: none; }
+.lightbox img {
+  max-width: min(92vw, 800px);
+  max-height: 75vh;
+  border-radius: 16px;
+  border: 4px solid #fdbbbb;
+  background: #fff;
+}
+.lightbox p { color: #ffd1d1; font-weight: 700; }
+.lightbox .lb-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+  color: #ffd1d1;
+  background: rgba(253, 187, 187, .2);
+  border: 2px solid #fdbbbb;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+.lightbox .lb-prev { left: 1rem; }
+.lightbox .lb-next { right: 1rem; }
+.lightbox .lb-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1rem;
+  color: #6d1d1d;
+  background: #fdbbbb;
+  border: none;
+  border-radius: 999px;
+  padding: .4rem 1rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+@media (max-width: 480px) {
+  h1 { font-size: 2.1rem; }
+  .card { padding: 2rem 1.25rem 1.5rem; }
 }
 
-.nav-links {
-	display: flex;
-	gap: 15px;
-	align-items: center;
+/* ---- orientation / screen-size tuning ---- */
+/* Landscape screens (phone on its side, laptops, tablets): go wider so the
+   card uses the extra horizontal space instead of a tall narrow column. */
+@media (orientation: landscape) and (min-width: 600px) {
+  body { padding: 1.5rem 2rem; align-items: flex-start; }
+  .card { max-width: 660px; padding: 2rem 2.25rem 1.75rem; }
+  .card.wide { max-width: 860px; }
+  .avatar { width: 108px; height: 108px; }
+  h1 { font-size: 2.4rem; }
+  .gallery { columns: 3; }
+  .btns { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .lightbox { flex-direction: row; gap: 1.5rem; }
+  .lightbox img { max-height: 78vh; max-width: min(70vw, 900px); }
+  .lightbox p { position: absolute; bottom: 1rem; left: 0; right: 0; text-align: center; }
 }
-
-button {
-	font-family: 'Indie Flower';
-	background-color: #fdbbbb;
-	font-size: 18px;
-	font-weight: bold;
-	border: none;
-	padding: 8px 12px;
-	border-radius: 4px;
-	transition: background-color 0.3s;
+/* Big landscape screens: allow an even wider gallery. */
+@media (orientation: landscape) and (min-width: 1100px) {
+  .card.wide { max-width: 1000px; }
+  .gallery { columns: 4; }
 }
-
-button:hover {
-	background-color: #f0b0b0;
+/* Portrait phones: single-column gallery reads better in a narrow column. */
+@media (orientation: portrait) and (max-width: 560px) {
+  .gallery { columns: 1; }
+  .card { align-self: flex-start; }
 }
-
-a:-webkit-any-link {
-	color: #6d1d1d;
-	cursor: pointer;
-	text-decoration: none;
+/* Landscape phones (short height): trim vertical padding so it still fits. */
+@media (orientation: landscape) and (max-height: 480px) {
+  body { padding: 1rem; }
+  .avatar { width: 84px; height: 84px; }
+  h1 { font-size: 1.9rem; margin: .6rem 0 .2rem; }
+  .tag { margin: .3rem 0 .6rem; }
+  .bio { margin-bottom: 1rem; }
+  .divider { margin-bottom: 1rem; }
 }
-
-.animated-image-container {
-	display: flex;
-	align-items: center;
-}
-
-.animated-image-container img {
-	max-height: 60px;
-	width: auto;
-}
-
-.text {
-	font-family: 'Indie Flower', cursive;
-	font-size: 20px;
-	text-align: center;
-	color: #380c0c;
-	font-weight: lighter;
-}
-
-.box {
-	width: 45%;
-	height: auto;
-	background-color: #e69e9e;
-	box-shadow: inset 0 0 6px 0px #facaca;
-	padding: 15px;
-	margin-top: 10px;
-	display: inline-block;
-	flex-wrap: wrap;
-	justify-content: center;
-}
-
-.box h1 {
-	margin-top: 0;
-	font-size: 40pt;
-}
-
-.box p {
-	margin-top: 0;
-	text-align: left;
-	padding-left: 10pt;
-}
-
-.container {
-	padding: 10px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-}
-

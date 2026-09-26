@@ -8,11 +8,12 @@
 <title>Loading… — PixelAxolotl</title>
 <link rel="icon" href="assets/axolotl.1.png">
 <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/carrd.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+<link rel="stylesheet" href="assets/style.css">
 <style>.btn[hidden] { display: none; }</style>
 </head>
 <body>
-  <main class="card">
+  <main class="card" data-aos="fade-up">
     <a class="back" href="index.html">← Home</a>
     <img class="avatar" src="assets/axolotl.1.png" alt="PixelAxolotl avatar">
     <h1>One sec…</h1>
@@ -30,6 +31,10 @@
       </nav>
     </noscript>
   </main>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
   <script>
     (function () {
       var BLOCKED = "MY";

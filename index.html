@@ -8,24 +8,29 @@
 <title>PixelAxolotl</title>
 <link rel="icon" href="assets/axolotl.1.png">
 <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/carrd.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <main class="card">
+  <main class="card" data-aos="fade-up">
     <img class="avatar" src="assets/axolotl.1.png" alt="PixelAxolotl avatar">
     <h1>PixelAxolotl</h1>
     <div class="tag">portfolio &amp; projects</div>
     <p class="bio">Welcome to my corner of the internet!<br>Art, code, and random experiments.</p>
     <div class="divider"></div>
     <nav class="btns">
-      <a class="btn" href="AboutMe.html"><span>About Me</span><small>who am i</small><span class="arrow">→</span></a>
-      <a class="btn" href="Gallery.html"><span>Gallery</span><small>photos</small><span class="arrow">→</span></a>
-      <a class="btn" href="LocationCheck_RandomQuotes.html"><span>Random Projects</span><small>fun stuff</small><span class="arrow">→</span></a>
+      <a class="btn" href="AboutMe.html" data-aos="fade-up" data-aos-delay="100"><span>About Me</span><small>who am i</small><span class="arrow">→</span></a>
+      <a class="btn" href="Gallery.html" data-aos="fade-up" data-aos-delay="200"><span>Gallery</span><small>photos</small><span class="arrow">→</span></a>
+      <a class="btn" href="LocationCheck_RandomQuotes.html" data-aos="fade-up" data-aos-delay="300"><span>Random Projects</span><small>fun stuff</small><span class="arrow">→</span></a>
     </nav>
-    <div class="status">
+    <div class="status" data-aos="zoom-in" data-aos-delay="400">
       <img id="discordStatus" src="data:," alt="Discord status" loading="lazy">
     </div>
   </main>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
   <script>
     (function () {
       var img = document.getElementById("discordStatus");

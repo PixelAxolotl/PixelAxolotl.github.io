@@ -8,10 +8,11 @@
 <title>Gallery — PixelAxolotl</title>
 <link rel="icon" href="assets/axolotl.1.png">
 <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/carrd.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <main class="card wide" id="top">
+  <main class="card wide" id="top" data-aos="fade-up">
     <a class="back" href="index.html">← Home</a>
     <img class="avatar" src="assets/axolotl.1.png" alt="PixelAxolotl avatar">
     <h1>Gallery</h1>
@@ -20,39 +21,39 @@
     <div class="divider"></div>
     <!-- To add a photo: copy a <figure> block, change src + caption. Put the file in assets/gallery/ -->
     <div class="gallery" id="gallery">
-      <figure tabindex="0" data-caption="Works Access — road sign against the sky">
+      <figure tabindex="0" data-aos="fade-up" data-caption="Works Access — road sign against the sky">
         <img src="assets/gallery/485619448_18005716526725044_6228889166673476256_n.webp" alt="Orange Works Access road sign" loading="lazy">
         <figcaption>Works Access 🚧</figcaption>
       </figure>
-      <figure tabindex="0" data-caption="City skyline mirrored in the water">
+      <figure tabindex="0" data-aos="fade-up" data-aos-delay="50" data-caption="City skyline mirrored in the water">
         <img src="assets/gallery/485626848_18005716616725044_6134350199241272832_n.webp" alt="City skyline across the water" loading="lazy">
         <figcaption>City reflections 🏙️</figcaption>
       </figure>
-      <figure tabindex="0" data-caption="Looking straight up a skyscraper into the clouds">
+      <figure tabindex="0" data-aos="fade-up" data-aos-delay="100" data-caption="Looking straight up a skyscraper into the clouds">
         <img src="assets/gallery/523283456_17854783608480551_2299842695299984550_n.jpg" alt="Looking up at a skyscraper" loading="lazy">
         <figcaption>Looking up 🏢</figcaption>
       </figure>
-      <figure tabindex="0" data-caption="Portrait in a red headscarf, double exposure">
+      <figure tabindex="0" data-aos="fade-up" data-aos-delay="150" data-caption="Portrait in a red headscarf, double exposure">
         <img src="assets/gallery/554759613_17861932602480551_8380274853124281258_n.webp" alt="Portrait with red headscarf" loading="lazy">
         <figcaption>Red headscarf 📷</figcaption>
       </figure>
-      <figure tabindex="0" data-caption="Portrait looking up, red headscarf">
+      <figure tabindex="0" data-aos="fade-up" data-aos-delay="200" data-caption="Portrait looking up, red headscarf">
         <img src="assets/gallery/556840754_17861932587480551_839807163162602520_n.webp" alt="Portrait looking up" loading="lazy">
         <figcaption>Gaze 📷</figcaption>
       </figure>
-      <figure tabindex="0" data-caption="Drummer on a smoky stage">
+      <figure tabindex="0" data-aos="fade-up" data-aos-delay="250" data-caption="Drummer on a smoky stage">
         <img src="assets/gallery/627323229_17876362818480551_7764141814067335386_n.webp" alt="Drummer performing on stage" loading="lazy">
         <figcaption>On stage 🥁</figcaption>
       </figure>
-      <figure tabindex="0" data-caption="Pink blossom in soft light">
+      <figure tabindex="0" data-aos="fade-up" data-aos-delay="300" data-caption="Pink blossom in soft light">
         <img src="assets/gallery/642529609_17879360151480551_4790922710823504164_n.webp" alt="Pink flower close-up" loading="lazy">
         <figcaption>Pink bloom 🌸</figcaption>
       </figure>
-      <figure tabindex="0" data-caption="Bleeding-heart flowers up close">
+      <figure tabindex="0" data-aos="fade-up" data-aos-delay="350" data-caption="Bleeding-heart flowers up close">
         <img src="assets/gallery/642580153_17879360163480551_3168924692096113847_n.webp" alt="Red and white bleeding-heart flowers" loading="lazy">
         <figcaption>Bleeding hearts ❤️</figcaption>
       </figure>
-      <figure tabindex="0" data-caption="Singer silhouette under the stage lights">
+      <figure tabindex="0" data-aos="fade-up" data-aos-delay="400" data-caption="Singer silhouette under the stage lights">
         <img src="assets/gallery/pixelaxolotl-photo-DUkQk9GErUz-20260210_140005_632267729.jpg" alt="Singer silhouette on stage" loading="lazy">
         <figcaption>Silhouette 🎤</figcaption>
       </figure>
@@ -68,6 +69,10 @@
     <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Next photo">›</button>
   </div>
 
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
   <script>
     (function () {
       var figs = Array.prototype.slice.call(document.querySelectorAll("#gallery figure"));
