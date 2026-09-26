@@ -1,33 +1,119 @@
 <!DOCTYPE html>
-<html>
-    <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="PixelAxolotl4702">
+<html lang="en">
 <head>
-	<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-	<link rel="icon" href="assets/a.png">
-	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-	<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-	<script>AOS.init();</script>
-	<title>	PixelAxolotl4702</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="PixelAxolotl4702">
+<meta name="description" content="Routing you to the right page…">
+<title>Loading… — PixelAxolotl</title>
+<link rel="icon" href="assets/axolotl.1.png">
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/carrd.css">
+<style>.btn[hidden] { display: none; }</style>
 </head>
 <body>
-    <script>
-        function UwU() {
-            $.getJSON("https://ipapi.co/json/", function (data) {
-                var userCountry = data.country_code;
-                if (userCountry === "MY") {
-                    window.location.href = "404 Not Found.html";
-                } else {
-                    window.location.href = "RandomStuff.html";
-                }
-            });
+  <main class="card">
+    <a class="back" href="index.html">← Home</a>
+    <img class="avatar" src="assets/axolotl.1.png" alt="PixelAxolotl avatar">
+    <h1>One sec…</h1>
+    <div class="tag">checking location</div>
+    <div class="divider"></div>
+    <div class="spinner" id="spinner" aria-hidden="true"></div>
+    <p class="bio" id="msg">Routing you to the right page…</p>
+    <nav class="btns">
+      <a class="btn" id="continueBtn" href="RandomStuff.html" hidden><span>Continue</span><small>random stuff</small><span class="arrow">→</span></a>
+    </nav>
+    <noscript>
+      <p class="bio">Enable JavaScript for the automatic check, or continue manually:</p>
+      <nav class="btns">
+        <a class="btn" href="RandomStuff.html"><span>Continue</span><span class="arrow">→</span></a>
+      </nav>
+    </noscript>
+  </main>
+  <script>
+    (function () {
+      var BLOCKED = "MY";
+      var BLOCK_URL = "404 Not Found.html";
+      var ALLOW_URL = "RandomStuff.html";
+      var msg = document.getElementById("msg");
+      var spinner = document.getElementById("spinner");
+      var cont = document.getElementById("continueBtn");
+      var done = false;
+
+      function go(url) {
+        if (done) return;
+        done = true;
+        window.location.href = url;
+      }
+      function norm(c) { return (c || "").toString().toUpperCase(); }
+      function showManual(text) {
+        spinner.style.display = "none";
+        msg.textContent = text;
+        cont.hidden = false;
+      }
+
+      // ?debug=MY previews the blocked state without navigating away.
+      try {
+        if (norm(new URLSearchParams(window.location.search).get("debug")) === BLOCKED) {
+          spinner.style.display = "none";
+          msg.textContent = "This content isn't available in your region. (preview)";
+          return;
         }
-        $(document).ready(function () {
-            UwU();
+      } catch (e) { /* ignore */ }
+
+      function withTimeout(promise, ms) {
+        return Promise.race([
+          promise,
+          new Promise(function (_, reject) {
+            setTimeout(function () { reject(new Error("timeout")); }, ms);
+          })
+        ]);
+      }
+      function lookup(url, pick) {
+        return withTimeout(
+          fetch(url).then(function (r) {
+            if (!r.ok) throw new Error("HTTP " + r.status);
+            return r.json();
+          }),
+          3500
+        ).then(function (d) { return norm(pick(d)); })
+         .catch(function () { return ""; }); // unknown, not a vote
+      }
+
+      Promise.all([
+        lookup("https://ipapi.co/json/", function (d) {
+          return d && !d.error ? d.country_code : "";
+        }),
+        lookup("https://ipwho.is/", function (d) {
+          return d && d.success !== false ? d.country_code : "";
+        }),
+        lookup("https://freeipapi.com/api/json", function (d) {
+          return d && d.countryCode;
+        })
+      ]).then(function (codes) {
+        var my = 0, other = 0;
+        codes.forEach(function (c) {
+          if (!c) return;
+          if (c === BLOCKED) my++;
+          else other++;
         });
-    </script>
+        if (my > 0 && my >= other) {
+          msg.textContent = "This content isn't available in your region.";
+          go(BLOCK_URL);
+        } else if (other > 0) {
+          go(ALLOW_URL);
+        } else {
+          // Every provider failed: don't silently bypass the block,
+          // let the visitor continue manually instead.
+          showManual("Couldn't verify location — tap Continue.");
+        }
+      });
+
+      // Last resort: never leave visitors staring at a spinner forever.
+      setTimeout(function () {
+        if (!done) showManual("That took too long — tap Continue.");
+      }, 12000);
+    })();
+  </script>
 </body>
 </html>

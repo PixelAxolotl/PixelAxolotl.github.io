@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="PixelAxolotl4702">
+<meta name="description" content="Random stuff and random quotes">
+<title>Random Stuff — PixelAxolotl</title>
+<link rel="icon" href="assets/axolotl.1.png">
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/carrd.css">
+</head>
+<body>
+  <main class="card">
+    <a class="back" href="index.html">← Home</a>
+    <img class="avatar" src="assets/axolotl.1.png" alt="PixelAxolotl avatar">
+    <h1>Random Stuff</h1>
+    <div class="tag">random quotes</div>
+    <p class="bio">A little quote generator for fun.</p>
+    <div class="divider"></div>
+    <div class="quote-box" id="quote">Click the button for a random quote!</div>
+    <button class="action-btn" id="newQuote" type="button">New quote ✨</button>
+    <div class="divider" style="margin-top:1.5rem"></div>
+    <nav class="btns">
+      <a class="btn" href="AboutMe.html"><span>About Me</span><small>who am i</small><span class="arrow">→</span></a>
+      <a class="btn" href="Gallery.html"><span>Gallery</span><small>photos</small><span class="arrow">→</span></a>
+    </nav>
+  </main>
+  <script>
+    (function () {
+      var quotes = [
+        "Stay hydrated like an axolotl. 💧",
+        "Small progress is still progress.",
+        "Be the pink axolotl in a grey pond.",
+        "Make something weird today.",
+        "Artists are just kids who never quit coloring."
+      ];
+      var box = document.getElementById("quote");
+      document.getElementById("newQuote").addEventListener("click", function () {
+        box.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+      });
+    })();
+  </script>
+</body>
+</html>

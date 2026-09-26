@@ -1,33 +1,45 @@
-<html>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="PixelAxolotl4702">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-	<link rel="stylesheet" href="assets/style.css">
-	<link rel="icon" href="assets/a.png">
-	<script>AOS.init();</script>
-	<title>	PixelAxolot</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="PixelAxolotl4702">
+<meta name="description" content="PixelAxolotl — portfolio and project showcase">
+<title>PixelAxolotl</title>
+<link rel="icon" href="assets/axolotl.1.png">
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/carrd.css">
 </head>
-	<nav class="navbar">
-		<div class="nav-links">
-			<button><a href="AboutMe.html" target="_self">>About Me</a></button>
-			<button><a href="AOD6.0.html" target="_self">>AOD 6.0</a></button>
-			<button><a href="LocationCheck_RandomQuotes.html" target="_self">>Random Projects</a></button>
-			<button><a href="LocationCheck_RandomQuotes.html" target="_self">>Smt</a></button>
-		</div>
-		<a class="animated-image-container"><animated-image data-catalyst=""><img src="https://discord.ivl.is/widget/music/845125407447187486?theme=aurora&horizontal=1&hideControls=1&profile=1&nick=PixelAxolotl&offLabel=Sleeping...." data-target="animated-image.originalImage"></animated-image></a>
-	</nav>
-
-	<div class="container">
-		<div class ="box">
-			<div class="text" >				
-				<h1><b>About PixelAxolotl</h1></b>
-				<p>Welcome to my portfolio and project showcase!</p>
-			</div>
-		</div>
-	</div>
+<body>
+  <main class="card">
+    <img class="avatar" src="assets/axolotl.1.png" alt="PixelAxolotl avatar">
+    <h1>PixelAxolotl</h1>
+    <div class="tag">portfolio &amp; projects</div>
+    <p class="bio">Welcome to my corner of the internet!<br>Art, code, and random experiments.</p>
+    <div class="divider"></div>
+    <nav class="btns">
+      <a class="btn" href="AboutMe.html"><span>About Me</span><small>who am i</small><span class="arrow">→</span></a>
+      <a class="btn" href="Gallery.html"><span>Gallery</span><small>photos</small><span class="arrow">→</span></a>
+      <a class="btn" href="LocationCheck_RandomQuotes.html"><span>Random Projects</span><small>fun stuff</small><span class="arrow">→</span></a>
+    </nav>
+    <div class="status">
+      <img id="discordStatus" src="data:," alt="Discord status" loading="lazy">
+    </div>
+  </main>
+  <script>
+    (function () {
+      var img = document.getElementById("discordStatus");
+      var LIGHT = "https://discord.ivl.is/widget/music/845125407447187486?horizontal=1&hideControls=1&npLabel=Now+Playing%3F&offLabel=Sleeping...&statusLabel=Sleeping%21&idleMsg=PixelAxolotl&idleImg=data%3Aimage%2Fjpeg%3Bbase64%2C%2F9j%2F4AAQSkZJRgABAQAAAQABAAD%2F4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb%2F2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL%2F2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL%2FwAARCACAAIADASIAAhEBAxEB%2F8QAGwAAAQUBAQAAAAAAAAAAAAAABQECAwQGAAf%2FxAA%2FEAACAQMCAwYDBQQIBwAAAAABAgMABBEFIRIxUQYTIkFhgRRxkSMyUmKhFUKxsiQzgpKiwtHwJUNys8HS4f%2FEABkBAAMBAQEAAAAAAAAAAAAAAAIDBAEABf%2FEACURAAICAgMAAQQDAQAAAAAAAAABAhEDIQQSMSITQVFxIzJCYf%2FaAAwDAQACEQMRAD8A9Uu7%2B3s0BmfDEgKg3ZifIDn%2FAKbk7Cq%2Bi3Vxe2ss9xw7zuIwvIKDjHrggjPpQTT7ZL15LeziSygibD8KhJCD%2BFf3Qep32O3nWphiSCFIolCxooVVHIAchXjtJaPXkktEop1MpwNYLY6upKWuMOrq6urThaWm11cYPBp4NRZqC7vrexiElxKEBOFHMsegA3PtWox%2F9LZ3oVcX%2FGZFtAsnd%2F1kznEcYHPf94geQ%2BRIoHd61eXkhMtoy2IUEwJMO8fzIbbB6cIbB3BJB2JzzWt32dlMLK9vOvcDh8P3jwEeh3xjyNLzyljaTXoMJxl%2FVljSb97%2B1Jng%2BHuoiEnh4uII5UNgHAyMMpz60QqnCf8Aid0BwhWjjfA5k%2BIE%2FRQParlZB9kmMMjFbS6q0E9pmIJul8djj8g%2FeBIGc%2BEjB3rUisX2Wv7lL5bFQZLYqTjc910IPkPLH0xvnaU7ImnTKc6alsUU4UgpaWicWlpK6tMFzXZpM0ma44dmuzUE9xFbQtLPIsca82Y1nb7VZtQBji44LY5B3w8g%2FwAo9Oe%2B%2BOVHCEpvQvJkjjVyCd%2FraQs0NpwyzA4ZuaJ8%2Bp9B%2BlAiXklMs8rTTHm79OgHIDlsOlIqqihVAVRsABsKWr8eFQ%2FZ5eXkSyfocKiuEuoL7TbaCXht7%2BfvJVKZCNEjNxe5EXoOAdTUqjNXrwCPUNM%2FIrj%2BUUvlq8UguI39RE2nxpZ608TzyyzXNsHDSNkt3bYY9B%2FWrsABzo5QpsrqFi6gZMjRsfylGJH1VfpRSvK40u2NWew1sAdl9Oi07Q7YIS0ksaySOxyWJGfoM4FHBvWQ0vXprezhtXte9aMBEKNjiA2G2OeNvatFYC%2FmnkluVSKEgCOIHJHUk9f9%2FOmSlex2SDi%2FkXxS13Aw8q6gEC5pK6kJrTjiaGarrVvpaBW%2B1uHH2cKnc%2Bp6D1%2FjVG%2B1q7u7iSw0GBrq4RgkswA4Ij5jJ2yP95O1O0vsRIJ3utVvWllffgiPn58Tnc%2BmAMevk6GK9yFTyVqPoJeW4vJu%2FvJON%2BaoNkj%2FAOkdfU7%2B21PzRHWuz0WjxfHWJlFsM%2FExySPJjo4LEkAciOWDnbByMzV0OtfE8nOpdrkOzS5plOBoxBPAvHOi9WFP1CcP2gggHOCAO39t8D%2Ftml09eK8T0yauR6VFfahd3UkkiyB1iUoQPCqggbj8TN9an5L%2FAI2i7hK52VY55l7XJCY2MDwoyuBsrjvMg%2BpB%2FwAJrSZqvbWUVrxlOJnc8TO7FiTjHt8ht9asV5eOHSKR6oA7NWFt8LHN3aGaNnHHjcZJOPoRWoVQBVa2s4rRSsKBATkgdatrVHrtmZZ9pWhcCopE86mNUNR1COyRQQXmkyI4l5ty%2BgGRk1zV6QtMZcXMVrE0szhEH1J8gB5k%2BQG5qkILrWW4H47ezz4kBw8g%2FMRyHoN9tzuRTbOylvbsT3LB5euPDED5L%2FrzOPYaSKJYkCqMAU2OJR99NnOgKmowadNb2FhYqbVZRAzI3CFYnHhAB4sHOeWMHmQaP1Qi0m2ivPiR3hYMzKrPlVLcyB7n5ZOKv0Ue3%2BhLr7CMqupVgCpGCD5isBqOmtpF6bbxG3fLW7Hfw%2Fh%2Ba5%2BmOe9egVQ1jTE1XT3gOFlXxwyEfcccj8vI9QSKbGVMTkh3VGFpwqNS2WSReCWNikiZzwsOYpwNUHnNU6YS0oATu5%2B6q7mjWkQOumxPJnvJszMD5FyWx7Zx7UCgJTTLtlzxuO7T1ZtgPqRWxSMIioOSjAqTk7pHocNUmysy4ptWnTIqBlwajaovUrJhTs1GrZoRqtprt1If2frFrZxeStZGRuW%2BW7wfoB70aAaLOtavFpFkJWUvLIwjijUElmPoN8DmT5AVnba4lmui62dzPcTDMkp4ByzgHxbAZOAOvqaFWlvdpq178Vdpd923dCZYmUyNzbdnc4BPCBkAEMMcqPRapaaRFetdAxx2sCTzzYyPEWAUY3JHDy%2FMOtXwwxjDs%2FWJ%2Bo06QVt7%2Be2i4W0qc9e6ljbP1YVcXVxwK0lldR55gqrFf7rH9M0wnfFV7O9tr5ZWtpBIsUrQsRyDqcMPY7UPVA9mEbXVLK7PDDcL3mATE%2BUkXPLKNhh7ireaFSwQ3CFJokkU7cLqCP1qulrLaj%2Bg3UkIzkRyEyR%2FLBOQPRSAKHqd2D2a6ha6uISRfQ%2FDjGe9Ul4%2FXLYHDj8wA35nfBJHV1DKQVIyCORFDQRlO1Wn9xMupxgBHKxzjHnyVv4KfbpQMV6HcwR3VtJBKoaORSrA%2BYNeePBLaTyWsxzJC3AW%2FF5g%2B4IPvTsctUR8mFfJBexiEkdnG33XuQ%2FP8OWH6qK1YOazGmKxvrNcfZxQPI3ozEBf0460atU2aXzK%2BPGsaJqhkFSBqjkNJY6Pozhxy2NIW4RlqlIrPdqLqRLNbCBuCW7BUyA4KRjHER67gDpnPlg9GHaVILtrZj9E1GTWBDBZ5MrRCa4nC5WNm3Kjq2W%2BWxzuMVp9N7Md3qE73iiW2LiVFkcuXcoEJfPPABxnI8XlgVJ2P0yO1sHnVAiO3BCgH3I08I%2BeSGbPRhWjPeCRQqqU%2FeJbBHyGN6sy5HfVARSSM9M9zptn%2BzlSVpz9jaSkFlYEgKS3VQckE5IViM713w6dm7nj4ymkyRqjE%2FdgdRgMT5BlwCeQKjqa0tIyqylWAIOxB86X3ZnVGV0Y3OnOqXizCK%2FYzxmT%2FlSOSxjP4eYwOob0ze0e9e7huRMftYrqaMjookYJ%2FhA%2FWil8kEls0NzG0kUvgZVjZs5%2BQ2%2BflVJNHFtaItvM7XEZcrLKclwzFirdRk8%2FeiWT8gyx%2Fglt7pLiS4RAwMEndMSNieFW29PEB8waYtobVuOxk%2BH3JMYGYmzzyvl1yMHPPNZK4u9R0S51rUZo3gt55sLG%2B%2BH7mJUdT5gyAry3yDtw4On0q6luLQpc8PxUJEcxUYDHAIYDyBBBx5Zxk4zR6YtpxCVpqaTSC3uFEF0RkRlsh%2BpQ%2FvD9RtkCgnauyEc0OpImxxBOw6E%2BAn3JH9oUTngjuIzHKvEp36EHyIPkR1HKoLhw1pJp%2BpM7WlwpjW5GzITyDYGxzyblyzvzGqdo51OPVkGlr%2FS7nBJ7uOKNumRxH%2FMKLq1COzkUwt72W4IM8l04k4eXEgWIkeh7vPvRQA8eBUmR3NsqxKoJE3FTWanGJuHI3qFs0DtehKmTlgBkkADmawd9dveTXN%2FEn2s2I7dX%2FDnEYPoS2eo4jWi1ueRdLeONirTER8Q5gH72PXGflQnSdOTUWa4mQG1j4o4lBI4mwVZtuWNwPXJ8hVeBqKeRi5xbaignFruhaNZQ2j6tbEQII9pA7EjYkhc79ansO1OianeLaWd%2Bsk7glU4GXOBk4yB5UPj7D9nF2Gmj3mk%2F9qu2XZHRbC%2BivLW0MU8RJRhI22Rg8z0JobizWmg3SilxScq4wXNIaxB7OdptP4xYdqJplJzi7BcjoMtxfpj5VCdd7Y6PMf2hpUd%2FbjPjt%2BZ5civIfNd67T8ZtM1Gt28F3bQ29xGskck6AqwyDg8X%2BWnpbxJO06oBK6KjN1VSSB7cR%2BtQ3F0t3DpUgXhM8gkCk7gd2zf%2FACrXlTcfgnJ6V45CdUnTJ4RDGQPLJZ%2F9BVqSKK5t5IJkDxSKVZTyIPMULSXHaKZOtvH%2FABerOntILdopWLPC7R8ROSQD4ST14SM%2BtMa0LRF2bgnttFWO4JaRZ5gznm32rbn5jf3otwg71BYYW6u4sk8RWXc5xkcOB0Hg%2BpNXO5YbiopxdlUZaESQqcHlUrJHIMkb9ai4C22Kdh1G4rE%2Fyc0vsUGtYLgoZow%2FAcqDyB5ZxViG2ihhSKFQkaKFVF5ADYAVVV28qlWZlO9LjLVDZRdlpY8GpMYqFJwae02RtTVJUKadjq7FRK%2BDvUverjetUkzmmiCRTmo8VO7cZwoPzpAoHOhYaloBy5uO0cDcOY7a3k8XRmZQP0DURqX4OBZXljXhdwA2%2BxxnH8TUTDGR51RjkkqEZE5StGdspzN2jvpWOUE4ijP5VQAj%2B%2BXorbuV1a9gPDwsscy457gqf5BWc0iC7ttQvnuUcB70yISNuEheXvmtLhRq0TAeJ4WBPoGXH8xqidUqE0yxFxprMONkkgcMerAqV%2FQvRfixVNLcF45HJBRuJcfIj%2FzVgsDUc2r0OitDwd6l2Iwarg07jxQpmuJ%2F%2F9k%3D";
+      var urls = { dark: LIGHT + "&dark=1", light: LIGHT };
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      function apply() {
+        var want = mq.matches ? urls.dark : urls.light;
+        if (img.getAttribute("src") !== want) img.setAttribute("src", want);
+      }
+      apply();
+      if (mq.addEventListener) mq.addEventListener("change", apply);
+      else if (mq.addListener) mq.addListener(apply);
+    })();
+  </script>
+</body>
 </html>

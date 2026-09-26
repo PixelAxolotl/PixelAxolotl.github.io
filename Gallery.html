@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="PixelAxolotl4702">
+<meta name="description" content="PixelAxolotl photo album and art portfolio">
+<title>Gallery — PixelAxolotl</title>
+<link rel="icon" href="assets/axolotl.1.png">
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/carrd.css">
+</head>
+<body>
+  <main class="card wide" id="top">
+    <a class="back" href="index.html">← Home</a>
+    <img class="avatar" src="assets/axolotl.1.png" alt="PixelAxolotl avatar">
+    <h1>Gallery</h1>
+    <div class="tag">photo album</div>
+    <p class="bio">Shots from my Instagram — click any picture to view it big!</p>
+    <div class="divider"></div>
+    <!-- To add a photo: copy a <figure> block, change src + caption. Put the file in assets/gallery/ -->
+    <div class="gallery" id="gallery">
+      <figure tabindex="0" data-caption="Works Access — road sign against the sky">
+        <img src="assets/gallery/485619448_18005716526725044_6228889166673476256_n.webp" alt="Orange Works Access road sign" loading="lazy">
+        <figcaption>Works Access 🚧</figcaption>
+      </figure>
+      <figure tabindex="0" data-caption="City skyline mirrored in the water">
+        <img src="assets/gallery/485626848_18005716616725044_6134350199241272832_n.webp" alt="City skyline across the water" loading="lazy">
+        <figcaption>City reflections 🏙️</figcaption>
+      </figure>
+      <figure tabindex="0" data-caption="Looking straight up a skyscraper into the clouds">
+        <img src="assets/gallery/523283456_17854783608480551_2299842695299984550_n.jpg" alt="Looking up at a skyscraper" loading="lazy">
+        <figcaption>Looking up 🏢</figcaption>
+      </figure>
+      <figure tabindex="0" data-caption="Portrait in a red headscarf, double exposure">
+        <img src="assets/gallery/554759613_17861932602480551_8380274853124281258_n.webp" alt="Portrait with red headscarf" loading="lazy">
+        <figcaption>Red headscarf 📷</figcaption>
+      </figure>
+      <figure tabindex="0" data-caption="Portrait looking up, red headscarf">
+        <img src="assets/gallery/556840754_17861932587480551_839807163162602520_n.webp" alt="Portrait looking up" loading="lazy">
+        <figcaption>Gaze 📷</figcaption>
+      </figure>
+      <figure tabindex="0" data-caption="Drummer on a smoky stage">
+        <img src="assets/gallery/627323229_17876362818480551_7764141814067335386_n.webp" alt="Drummer performing on stage" loading="lazy">
+        <figcaption>On stage 🥁</figcaption>
+      </figure>
+      <figure tabindex="0" data-caption="Pink blossom in soft light">
+        <img src="assets/gallery/642529609_17879360151480551_4790922710823504164_n.webp" alt="Pink flower close-up" loading="lazy">
+        <figcaption>Pink bloom 🌸</figcaption>
+      </figure>
+      <figure tabindex="0" data-caption="Bleeding-heart flowers up close">
+        <img src="assets/gallery/642580153_17879360163480551_3168924692096113847_n.webp" alt="Red and white bleeding-heart flowers" loading="lazy">
+        <figcaption>Bleeding hearts ❤️</figcaption>
+      </figure>
+      <figure tabindex="0" data-caption="Singer silhouette under the stage lights">
+        <img src="assets/gallery/pixelaxolotl-photo-DUkQk9GErUz-20260210_140005_632267729.jpg" alt="Singer silhouette on stage" loading="lazy">
+        <figcaption>Silhouette 🎤</figcaption>
+      </figure>
+    </div>
+    <a class="top-link" href="#top">Back to top ↑</a>
+  </main>
+
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-label="Photo viewer">
+    <button class="lb-close" id="lbClose" type="button">✕ Close</button>
+    <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Previous photo">‹</button>
+    <img id="lbImg" src="assets/axolotl.1.png" alt="Enlarged photo">
+    <p id="lbCap"></p>
+    <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Next photo">›</button>
+  </div>
+
+  <script>
+    (function () {
+      var figs = Array.prototype.slice.call(document.querySelectorAll("#gallery figure"));
+      var box = document.getElementById("lightbox");
+      var img = document.getElementById("lbImg");
+      var cap = document.getElementById("lbCap");
+      var idx = 0;
+      function show(i) {
+        idx = (i + figs.length) % figs.length;
+        var pic = figs[idx].querySelector("img");
+        img.src = pic.src;
+        img.alt = pic.alt;
+        cap.textContent = figs[idx].getAttribute("data-caption") || "";
+        box.hidden = false;
+        document.body.style.overflow = "hidden";
+      }
+      function hide() {
+        box.hidden = true;
+        document.body.style.overflow = "";
+      }
+      figs.forEach(function (f, i) {
+        f.addEventListener("click", function () { show(i); });
+        f.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); show(i); }
+        });
+      });
+      document.getElementById("lbClose").addEventListener("click", hide);
+      document.getElementById("lbPrev").addEventListener("click", function () { show(idx - 1); });
+      document.getElementById("lbNext").addEventListener("click", function () { show(idx + 1); });
+      box.addEventListener("click", function (e) { if (e.target === box) hide(); });
+      document.addEventListener("keydown", function (e) {
+        if (box.hidden) return;
+        if (e.key === "Escape") hide();
+        if (e.key === "ArrowLeft") show(idx - 1);
+        if (e.key === "ArrowRight") show(idx + 1);
+      });
+    })();
+  </script>
+</body>
+</html>
