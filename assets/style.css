@@ -160,6 +160,57 @@ h1 {
 .status { margin-top: 1.5rem; display: flex; justify-content: center; }
 .status img { max-width: 100%; border-radius: 12px; }
 footer { margin-top: 1.25rem; font-size: .8rem; opacity: .6; }
+/* ---- github project cards (Projects.html) ---- */
+.repo-grid { display: grid; gap: .8rem; text-align: left; }
+.repo {
+  background: rgba(255, 209, 209, .45);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+}
+.repo-top { display: flex; align-items: baseline; justify-content: space-between; gap: .6rem; flex-wrap: wrap; }
+.repo-name {
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.35rem;
+  color: #380c0c;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.repo-name:hover { border-bottom-color: #e69e9e; }
+.repo-desc { font-size: .95rem; line-height: 1.5; margin: .3rem 0 .6rem; }
+.repo-desc.muted { opacity: .6; font-style: italic; }
+.repo-meta { display: flex; align-items: center; gap: .9rem; flex-wrap: wrap; font-size: .8rem; font-weight: 700; opacity: .85; }
+.repo-lang { display: inline-flex; align-items: center; gap: .35rem; }
+.repo-lang i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.repo-star { color: #8a5a00; }
+.repo-flag {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .68rem;
+  background: #fdbbbb;
+  border-radius: 999px;
+  padding: .1rem .5rem;
+}
+.repo-pushed { margin-left: auto; opacity: .7; }
+.repo-status {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: .15rem .6rem;
+  border-radius: 999px;
+  background: rgba(255, 245, 245, .8);
+}
+.repo-status i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.repo-status.active { color: #1f6b3a; }
+.repo-status.active i { background: #35c46a; box-shadow: 0 0 0 3px rgba(53, 196, 106, .25); }
+.repo-status.wip { color: #8a5a00; }
+.repo-status.wip i { background: #e8a93a; }
+.repo-status.paused { color: #7a5a5a; }
+.repo-status.paused i { background: #b99a9a; }
+.repo-note { font-size: .78rem; opacity: .65; margin: .7rem 0 1.1rem; text-align: center; }
 .spinner {
   width: 42px; height: 42px;
   border: 4px solid #fdbbbb;

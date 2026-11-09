@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="PixelAxolotl4702">
+<meta name="description" content="PixelAxolotl's GitHub projects and their current status.">
+<title>Projects — PixelAxolotl</title>
+<link rel="icon" href="assets/axolotl.1.png">
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <main class="card wide" data-aos="fade-up">
+    <a class="back" href="index.html">← Home</a>
+    <img class="avatar" src="assets/axolotl.1.png" alt="PixelAxolotl avatar">
+    <h1>GitHub Projects</h1>
+    <div class="tag">live from github</div>
+    <p class="bio">Everything I'm building, pulled straight from my repos.<br>
+      Active means touched in the last two weeks.</p>
+    <div class="divider"></div>
+    <div class="repo-grid" id="repos" aria-live="polite">
+      <article class="repo"><p class="repo-desc">Loading repos…</p></article>
+    </div>
+    <p class="repo-note" id="repoNote"></p>
+    <div class="divider"></div>
+    <nav class="btns">
+      <a class="btn" href="https://github.com/PixelAxolotl" rel="noopener"><span>GitHub Profile</span><small>@PixelAxolotl</small><span class="arrow">→</span></a>
+      <a class="btn" href="AboutMe.html"><span>About Me</span><small>who am i</small><span class="arrow">→</span></a>
+      <a class="btn" href="Gallery.html"><span>Gallery</span><small>photos</small><span class="arrow">→</span></a>
+    </nav>
+  </main>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script>
+    (function () {
+      var USER = "PixelAxolotl";
+      var API = "https://api.github.com/users/" + USER + "/repos?per_page=100&sort=pushed";
+      var EXCLUDE = ["PixelAxolotl", "PixelAxolotl.github.io"];
+      var CACHE_KEY = "gh-repos-v1";
+      var CACHE_TTL = 30 * 60 * 1000;
+      var DAY = 86400000;
+
+      // Snapshot so the page still works when GitHub rate-limits or is offline.
+      var SNAPSHOT = { at: "2026-11-09T06:50:00Z", repos: [
+        { name: "PluginRack", description: "A voicemeter inspiried audio mixer/router for livestreaming or device audio routing", language: "C++", stargazers_count: 0, pushed_at: "2026-11-09T06:23:29Z", fork: false, archived: false, html_url: "https://github.com/PixelAxolotl/PluginRack" },
+        { name: "lrc-sync", description: "Uses Whisper to create synced lrc files", language: "Python", stargazers_count: 0, pushed_at: "2026-11-09T06:44:38Z", fork: false, archived: false, html_url: "https://github.com/PixelAxolotl/lrc-sync" },
+        { name: "ivLyrics", description: "Brand-New Spicetify Lyrics Plugin with AI-Based translate and beautiful design", language: "JavaScript", stargazers_count: 2, pushed_at: "2026-11-08T14:02:17Z", fork: true, archived: false, html_url: "https://github.com/PixelAxolotl/ivLyrics" },
+        { name: "discord-bot", description: "", language: null, stargazers_count: 0, pushed_at: "2022-05-26T00:55:43Z", fork: false, archived: false, html_url: "https://github.com/PixelAxolotl/discord-bot" }
+      ] };
+
+      var COLORS = {
+        "C++": "#f34b7d", "Python": "#3572A5", "JavaScript": "#f1e05a",
+        "HTML": "#e34c26", "TypeScript": "#3178c6", "CSS": "#563d7c",
+        "C": "#555555", "Rust": "#dea584", "Shell": "#89e051"
+      };
+
+      var grid = document.getElementById("repos");
+      var note = document.getElementById("repoNote");
+
+      function esc(s) {
+        return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+        });
+      }
+
+      function ago(iso) {
+        var d = (Date.now() - new Date(iso).getTime()) / DAY;
+        if (!isFinite(d)) return "unknown";
+        if (d < 1) return "today";
+        if (d < 2) return "yesterday";
+        if (d < 30) return Math.floor(d) + " days ago";
+        if (d < 365) return Math.floor(d / 30) + " months ago";
+        return Math.floor(d / 365) + " years ago";
+      }
+
+      function status(iso) {
+        var d = (Date.now() - new Date(iso).getTime()) / DAY;
+        if (d <= 14) return { key: "active", label: "Active" };
+        if (d <= 60) return { key: "wip", label: "In progress" };
+        return { key: "paused", label: "Paused" };
+      }
+
+      function card(r) {
+        var st = status(r.pushed_at);
+        var lang = r.language
+          ? '<span class="repo-lang"><i style="background:' + (COLORS[r.language] || "#e69e9e") + '"></i>' + esc(r.language) + "</span>"
+          : "";
+        var stars = r.stargazers_count
+          ? '<span class="repo-star">★ ' + r.stargazers_count + "</span>"
+          : "";
+        var fork = r.fork ? '<span class="repo-flag">fork</span>' : "";
+        return '<article class="repo">'
+          + '<div class="repo-top"><a class="repo-name" href="' + esc(r.html_url) + '" rel="noopener">' + esc(r.name) + "</a>"
+          + '<span class="repo-status ' + st.key + '"><i></i>' + st.label + "</span></div>"
+          + (r.description ? '<p class="repo-desc">' + esc(r.description) + "</p>" : '<p class="repo-desc muted">No description yet.</p>')
+          + '<div class="repo-meta">' + lang + stars + fork
+          + '<span class="repo-pushed">updated ' + ago(r.pushed_at) + "</span></div>"
+          + "</article>";
+      }
+
+      function render(repos, at, fromCache, msg) {
+        var list = repos.filter(function (r) {
+          return EXCLUDE.indexOf(r.name) === -1 && !r.archived;
+        });
+        grid.innerHTML = list.length
+          ? list.map(card).join("")
+          : '<article class="repo"><p class="repo-desc">No public projects right now.</p></article>';
+        var stamp = at ? new Date(at).toLocaleString() : "";
+        if (msg) note.textContent = msg;
+        else if (fromCache) note.textContent = "Cached copy from " + stamp;
+        else note.textContent = "Updated " + stamp;
+      }
+
+      function readCache() {
+        try {
+          var raw = localStorage.getItem(CACHE_KEY);
+          if (!raw) return null;
+          var c = JSON.parse(raw);
+          if (!c || !c.repos || Date.now() - c.at > CACHE_TTL) return null;
+          return c;
+        } catch (e) { return null; }
+      }
+      function writeCache(repos) {
+        try { localStorage.setItem(CACHE_KEY, JSON.stringify({ at: Date.now(), repos: repos })); }
+        catch (e) { /* storage full or blocked */ }
+      }
+
+      var cached = readCache();
+      if (cached) render(cached.repos, cached.at, true);
+
+      fetch(API, { headers: { Accept: "application/vnd.github+json" } })
+        .then(function (r) {
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          return r.json();
+        })
+        .then(function (repos) {
+          var clean = repos.filter(function (r) { return !r.archived; });
+          writeCache(clean);
+          render(clean, Date.now(), false);
+        })
+        .catch(function () {
+          if (cached) return;
+          render(SNAPSHOT.repos, SNAPSHOT.at, false,
+            "Live data unavailable (GitHub rate limit or offline) — showing saved snapshot.");
+        });
+    })();
+  </script>
+</body>
+</html>
