@@ -9,7 +9,7 @@
 <link rel="icon" href="assets/axolotl.1.png">
 <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/style.css?v=2">
 </head>
 <body>
   <main class="card wide" data-aos="fade-up">
@@ -39,7 +39,7 @@
     (function () {
       var USER = "PixelAxolotl";
       var API = "https://api.github.com/users/" + USER + "/repos?per_page=100&sort=pushed";
-      var EXCLUDE = ["PixelAxolotl", "PixelAxolotl.github.io"];
+      var EXCLUDE = ["PixelAxolotl", "PixelAxolotl.github.io", "discord-bot"];
       var CACHE_KEY = "gh-repos-v1";
       var CACHE_TTL = 30 * 60 * 1000;
       var DAY = 86400000;
@@ -48,8 +48,7 @@
       var SNAPSHOT = { at: "2026-11-09T06:50:00Z", repos: [
         { name: "PluginRack", description: "A voicemeter inspiried audio mixer/router for livestreaming or device audio routing", language: "C++", stargazers_count: 0, pushed_at: "2026-11-09T06:23:29Z", fork: false, archived: false, html_url: "https://github.com/PixelAxolotl/PluginRack" },
         { name: "lrc-sync", description: "Uses Whisper to create synced lrc files", language: "Python", stargazers_count: 0, pushed_at: "2026-11-09T06:44:38Z", fork: false, archived: false, html_url: "https://github.com/PixelAxolotl/lrc-sync" },
-        { name: "ivLyrics", description: "Brand-New Spicetify Lyrics Plugin with AI-Based translate and beautiful design", language: "JavaScript", stargazers_count: 2, pushed_at: "2026-11-08T14:02:17Z", fork: true, archived: false, html_url: "https://github.com/PixelAxolotl/ivLyrics" },
-        { name: "discord-bot", description: "", language: null, stargazers_count: 0, pushed_at: "2022-05-26T00:55:43Z", fork: false, archived: false, html_url: "https://github.com/PixelAxolotl/discord-bot" }
+        { name: "ivLyrics", description: "Brand-New Spicetify Lyrics Plugin with AI-Based translate and beautiful design", language: "JavaScript", stargazers_count: 2, pushed_at: "2026-11-08T14:02:17Z", fork: true, archived: false, html_url: "https://github.com/PixelAxolotl/ivLyrics" }
       ] };
 
       var COLORS = {
